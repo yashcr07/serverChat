@@ -8,6 +8,7 @@ app.use(express.static(__dirname+'/public'))
 
 app.post('/send', express.bodyParser(), function(req, res) 
 {
+	console.log("RECD", req.body);
 	if (req.body) 
 	{
 		tweets.push(req.body)
