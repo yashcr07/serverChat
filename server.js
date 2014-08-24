@@ -1,5 +1,6 @@
 var express = require('express')
 var app = express();
+var fs=require('fs')
 app.listen(8000)
 var tweets = []
 
@@ -12,6 +13,13 @@ app.post('/send', express.bodyParser(), function(req, res)
 	if (req.body) 
 	{
 		tweets.push(req.body)
+		fs.writeFile("G:/Programming/NodeJS/ChatXpress/public/tweet.txt",JSON.stringify(req.body),function(er){
+			if(er)
+				console.log(er)
+			else
+			   	console.log("Tweet saved")
+
+		})
 		res.send({status:"ok", message:"Tweet received"})
 	}
 	else 
