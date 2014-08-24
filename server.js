@@ -13,7 +13,7 @@ app.post('/send', express.bodyParser(), function(req, res)
 	if (req.body) 
 	{
 		tweets.push(req.body)
-		fs.writeFile("G:/Programming/NodeJS/ChatXpress/public/tweet.txt",JSON.stringify(req.body),function(er){
+		fs.appendFile("G:/Programming/NodeJS/ChatXpress/public/tweet.txt",JSON.stringify(req.body)+"\r\n",function(er){
 			if(er)
 				console.log(er)
 			else
