@@ -2,7 +2,6 @@ var express = require('express')
 var app = express();
 var fs=require('fs')
 app.listen(8000)
-var tweets = []
 var stored={}
 stored.allTweets=[]
 
@@ -36,7 +35,7 @@ app.post('/send', express.bodyParser(), function(req, res)
 		if(er)
 			conole.log(er)
 		else
-			console.log(JSON.parse(data))
+			stored.allTweets.push((JSON.parse(data)))
 	})
 
 	
