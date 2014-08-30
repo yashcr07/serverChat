@@ -9,6 +9,15 @@ stored.allTweets=[]
 
 app.use(express.static(__dirname+'/public'))
 
+//Retrieve previous tweets
+
+fs.readFile(__dirname+"/public/tweet.JSON",function(er,data){
+		if(er)
+			conole.log(er)
+		else
+			stored.allTweets.push((JSON.parse(data)))
+	})
+
 app.post('/send', express.bodyParser(), function(req, res) 
 {
 	console.log("RECD", req.body);
@@ -31,16 +40,12 @@ app.post('/send', express.bodyParser(), function(req, res)
 	}
 	})
 
-	fs.readFile(__dirname+"/public/tweet.JSON",function(er,data){
-		if(er)
-			conole.log(er)
-		else
-			stored.allTweets.push((JSON.parse(data)))
-	})
+	
 
 	
 
 app.get('/tweets', function(req,res) {
+
 res.send(tweets)
 })
 
