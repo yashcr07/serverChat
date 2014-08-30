@@ -1,6 +1,6 @@
 $(document).ready(function() {
   // On clicking button, run this "anonymous" function
-  $('button').click(function() {
+  $('#send').click(function() {
     // Get the text from the textarea input box
     tweet_text = $('#tweet-message').val();
     // Just show in console what the tweet is
@@ -24,4 +24,7 @@ $(document).ready(function() {
       alert("Your tweet was sent successfully");
     });
   });
+
+
+})
 })

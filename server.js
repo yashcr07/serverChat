@@ -3,6 +3,9 @@ var app = express();
 var fs=require('fs')
 app.listen(8000)
 var tweets = []
+var stored={}
+stored.allTweets=[]
+
 
 
 app.use(express.static(__dirname+'/public'))
@@ -12,8 +15,8 @@ app.post('/send', express.bodyParser(), function(req, res)
 	console.log("RECD", req.body);
 	if (req.body) 
 	{
-		tweets.push(req.body)
-		fs.appendFile("G:/Programming/NodeJS/ChatXpress/public/tweet.txt",JSON.stringify(req.body.tweet)+"\r\n",function(er){
+		stored.allTweets.push(req.body)
+		fs.writeFile(__dirname+"/public/tweet.JSON",JSON.stringify(stored.allTweets)+"\r\n",function(er){//dirname
 			if(er)
 				console.log(er)
 			else
@@ -28,6 +31,15 @@ app.post('/send', express.bodyParser(), function(req, res)
 		res.send({status:"nok", message:"No tweet received"})
 	}
 	})
+
+	fs.readFile(__dirname+"/public/tweet.JSON",function(er,data){
+		if(er)
+			conole.log(er)
+		else
+			console.log(JSON.parse(data))
+	})
+
+	
 
 app.get('/tweets', function(req,res) {
 res.send(tweets)
