@@ -13,6 +13,7 @@
 
 body{
 	margin:0px;
+	background-color: #ccc
 }
 
 .button{
@@ -22,7 +23,7 @@ body{
 		height:40px;
 		font-size: 20px;
 		font-family: 'Myanmar text',sans-serif;
-		
+		transition: background-color 0.5s ease;
 		text-align: center;
 		line-height: 48px;
 		border:1px solid #ba0404; 
@@ -30,6 +31,6 @@ body{
 		cursor: pointer;
 }
 
-.button:hover{
+.active{
 	background-color:#d62222;
 }

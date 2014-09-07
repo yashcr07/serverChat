@@ -1,0 +1,12 @@
+body{
+	margin:0px;
+	background-color: #ccc
+}
+
+#footer{
+	 position: fixed;
+	 bottom:0;
+	 height:40px;
+	 width: 100%;
+	 background-color: #444444;
+}

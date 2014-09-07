@@ -1,4 +1,10 @@
 $(document).ready(function() {
+
+  $('.button').hover(function(){
+    $(this).addClass('active')
+  },function(){
+    $(this).removeClass('active')
+  })
   // On clicking button, run this "anonymous" function
   $('#send').click(function() {
     // Get the text from the textarea input box
